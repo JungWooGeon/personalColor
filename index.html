@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="title" id="title">Personal Color</div>
+    <h1 class="result" id="result">
+            <p class="result-message"></p>
+        </h1>
+    <p id="harmony3"></p>
+    <p id="source"></p>
+    
+    <p id="harmony5"></p>
+    <p id="harmony4"></p>
+    
+    <p id="harmony8"></p>
+    <p id="harmony6"></p>
+    
+    <p id="harmony9"></p>
+    <p id="harmony7"></p>
+    
+    <p id="harmony"></p>
+    <p id="harmony2"></p>
+
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <div class="file-upload">
+
+        <div class="image-upload-wrap" id="image-upload-wrap">
+            <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+            <div class="drag-text">
+                <h3 class="upload-text">Image Upload</h3>
+            </div>
+        </div>
+        <div class="file-upload-content">
+            <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+            <div class="image-title-wrap">
+                <button type="button" onclick="removeUpload()" class="remove-image">
+                    <span class="image-title" id="image-title">loading..</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <p class="colorTest">
+        A.I Personal Color Test
+    </p>
+    <div class="result" id="result">
+        <div id="grid">
+            <div id="label-container"></div>
+            <div id="label-result"></div>
+        </div>
+        <p class="result-message2" onclick="myfunction()"></p>
+    </div>
+    <button type="button" onclick="firstPage()" class="first-page">
+        다시하기
+    </button>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('.image-upload-wrap').hide();
+                    $('.file-upload-image').attr('src', e.target.result);
+                    $('.file-upload-content').show();
+                };
+                reader.readAsDataURL(input.files[0]);
+                init().then(() => {
+                    predict();
+                    $('.colorTest').hide();
+                });
+            } else {
+                removeUpload();
+            }
+        }
+
+        function removeUpload() {
+            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+            $('.file-upload-content').hide();
+            location.reload();
+            $('.title').css('backgroundColor', '#AED6F1');
+            $('.image-upload-wrap').show();
+        }
+        $('.image-upload-wrap').bind('dragover', function() {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function() {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+    </script>
+    <script type="text/javascript">
+        // More API functions here:
+        // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+        // the link to your model provided by Teachable Machine export panel
+        const URL = "https://teachablemachine.withgoogle.com/models/Z7Orli6z8/";
+        let model, webcam, labelContainer, maxPredictions;
+        // Load the image model and setup the webcam
+        async function init() {
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+            // load the model and metadata
+            // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+            // or files from your local hard drive
+            // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+            labelContainer = document.getElementById("label-container");
+            labelResult = document.getElementById("label-result");
+            for (let i = 0; i < maxPredictions; i++) { // and class labels
+                labelContainer.appendChild(document.createElement("div")).id = "space";
+            }
+            for (let i = 0; i < maxPredictions; i++) { // and class labels
+                labelResult.appendChild(document.createElement("div")).id = "space2";
+            }
+        }
+        // run the webcam image through the image model
+        async function predict() {
+            // predict can take in an image, video or canvas html element
+            var image = document.getElementById("face-image")
+            const prediction = await model.predict(image, false);
+            prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+            var resultMessage;
+            var resultMessage2 = "자세히 보기";
+            switch (prediction[0].className) {
+                case "springWarm":
+                    resultMessage = "My Color  :  봄웜톤";
+                    $('.title').css('backgroundColor', '#F6DDCC');
+                    $('.remove-image').css('backgroundColor', '#F6DDCC');
+                    $('.result-message').css('color', '#E59866');
+                    break;
+                case "summerCool":
+                    resultMessage = "My Color  :  여름쿨톤";
+                    $('.title').css('backgroundColor', '#AED6F1');
+                    $('.remove-image').css('backgroundColor', '#AED6F1');
+                    $('.result-message').css('color', '#006699');
+                    break;
+                case "autumnWarm":
+                    resultMessage = "My Color  :  가을웜톤";
+                    $('.title').css('backgroundColor', '#EDBB99');
+                    $('.remove-image').css('backgroundColor', '#EDBB99');
+                    $('.result-message').css('color', '#BA4A00');
+                    break;
+                case "winterCool":
+                    resultMessage = "My Color  :  겨울쿨톤";
+                    $('.title').css('backgroundColor', '#D5D8DC');
+                    $('.remove-image').css('backgroundColor', '#D5D8DC');
+                    break;
+                default:
+            }
+            $('.result-message').html(resultMessage);
+            $('.result-message2').html(resultMessage2);
+            document.getElementById("image-title").innerHTML = "다시하기";
+            for (let i = 0; i < maxPredictions; i++) {
+                const classPrediction =
+                    prediction[i].className;
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+            for (let i = 0; i < maxPredictions; i++) {
+                const classPrediction =
+                    prediction[i].probability.toFixed(2) * 100 + "%";
+                labelResult.childNodes[i].innerHTML = `<span id=\"${i}\">` + classPrediction + "</span>";
+                $(`#${i}`).width(`${prediction[i].probability.toFixed(2) * 100 - 19.2}%`);
+                
+                switch(prediction[i].className) {
+                    case "springWarm":
+                        $(`#${i}`).css('backgroundColor', '#F9E79F');
+                    break;
+                    case "summerCool":
+                        $(`#${i}`).css('backgroundColor', '#D6EAF8');
+                        break;
+                    case "autumnWarm":
+                        $(`#${i}`).css('backgroundColor', '#E59866');
+                        break;
+                    case "winterCool":
+                        $(`#${i}`).css('backgroundColor', '#5499C7');
+                        break;
+                    default:
+                }
+                
+            }
+        }
+        
+        async function myfunction() {
+            var image = document.getElementById("face-image")
+            const prediction = await model.predict(image, false);
+            prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+            $('.first-page').show();
+            $('.file-upload').hide();
+            $('#grid').hide();
+            $('.result-message2').hide();
+            document.getElementById("source").innerHTML = "출처: 네이버포스트(물들임)";
+            
+            $('#source').css('margin-bottom', '25%');
+            
+            $('#harmony4').css('margin-bottom', '25%');
+            $('#harmony6').css('margin-bottom', '35%');
+            $('#harmony7').css('margin-bottom', '35%');
+            $('#harmony7').css('margin-top', '5%');
+            
+            $('.first-page').css('margin-bottom', '10%');
+            
+            
+            if(prediction[0].className === "springWarm") {
+                $('.first-page').css('backgroundColor', '#F6DDCC');
+                document.getElementById("harmony3").innerHTML =
+                    '<img src="img/1.PNG" width="900" height="500">';
+                
+                document.getElementById("harmony5").innerHTML = 'WarmTone Hair Color';
+                $('#harmony5').css('color', '#E59866');
+                
+                
+                document.getElementById("harmony4").innerHTML = 
+                    '<img src="img/11.PNG" width="900" height="500">';
+                
+                
+                document.getElementById("harmony8").innerHTML = 'WarmTone Suit Color';
+                $('#harmony8').css('color', '#E59866');
+                document.getElementById("harmony6").innerHTML = 
+                    '<img src="img/111.PNG" width="900" height="500">';
+                
+                
+                document.getElementById("harmony9").innerHTML = 'WarmTone Accessory Color';
+                $('#harmony9').css('color', '#E59866');
+                document.getElementById("harmony7").innerHTML = 
+                    '<img src="img/1111.PNG" width="500" height="500">';
+                $('#harmony7').css('backgroundColor', '#FBEEE6');
+                
+                
+                document.getElementById("harmony").innerHTML = `
+                메이크업팁 - 파스널 계열의 색상은 피할 것 !
+                `;
+                $('#harmony').css('color', '#CC6633');
+                
+                document.getElementById("harmony2").innerHTML = `
+                봄 웜톤은 선명하고 밝은 톤을 잘 소화하며, 반대로 부드러운 파스텔 계열을 바를 경우 세련된 느낌이 덜하고, 얼굴이 전체적으로 칙칙해 보일 수 있음
+                `
+                $('#harmony2').css('margin-bottom', '10%');
+                $('#harmony2').css('color', '#E59866');     
+            }
+            if(prediction[0].className === "summerCool") {
+                $('.first-page').css('backgroundColor', '#AED6F1');
+                document.getElementById("harmony3").innerHTML =
+                    '<img src="img/2.PNG" width="900" height="500">';
+                
+                document.getElementById("harmony5").innerHTML = 'CoolTone Hair Color';
+                $('#harmony5').css('color', '#006699');
+                
+                document.getElementById("harmony4").innerHTML = 
+                    '<img src="img/22.PNG" width="900" height="500">';
+                
+                
+                document.getElementById("harmony8").innerHTML = 'CoolTone Suit Color';
+                $('#harmony8').css('color', '#006699');
+                document.getElementById("harmony6").innerHTML = 
+                    '<img src="img/222.PNG" width="900" height="500">';
+                
+                
+                document.getElementById("harmony9").innerHTML = 'CoolTone Accessory Color';
+                $('#harmony9').css('color', '#006699');
+                document.getElementById("harmony7").innerHTML = 
+                    '<img src="img/2222.PNG" width="500" height="500">';
+                
+                
+                document.getElementById("harmony").innerHTML = `
+                메이크업팁 - 그레이를 섞어라!
+                `;
+                $('#harmony').css('color', '#006699');
+                
+                document.getElementById("harmony2").innerHTML = `
+                여름 쿨톤은 차분하고 부드러운 느낌의 컬러가 잘 어울림
+                `
+                $('#harmony2').css('margin-bottom', '10%');
+                $('#harmony2').css('color', '#303F9F');
+            }
+            if(prediction[0].className === "autumnWarm") {
+                $('.first-page').css('backgroundColor', '#EDBB99');
+                document.getElementById("harmony3").innerHTML =
+                    '<img src="img/3.PNG" width="900" height="500">';
+                
+                document.getElementById("harmony5").innerHTML = 'WarmTone Hair Color';
+                $('#harmony5').css('color', 'rgb(186, 74, 0)');
+                
+                document.getElementById("harmony4").innerHTML = 
+                    '<img src="img/11.PNG" width="900" height="500">';
+                
+                
+                document.getElementById("harmony8").innerHTML = 'WarmTone Suit Color';
+                $('#harmony8').css('color', 'rgb(186, 74, 0)');
+                document.getElementById("harmony6").innerHTML = 
+                    '<img src="img/111.PNG" width="900" height="500">';
+                
+                
+                document.getElementById("harmony9").innerHTML = 'WarmTone Accessory Color';
+                $('#harmony9').css('color', 'rgb(186, 74, 0)');
+                document.getElementById("harmony7").innerHTML = 
+                    '<img src="img/1111.PNG" width="500" height="500">';
+                $('#harmony7').css('backgroundColor', '#FBEEE6');
+                
+                
+                document.getElementById("harmony").innerHTML = `
+                메이크업팁 - 카키, 브라운 계열의 빈티지한 컬러를 활용하라!
+                `;
+                $('#harmony').css('color', 'rgb(186, 74, 0)');
+                
+                document.getElementById("harmony2").innerHTML = `
+                가을 웜톤은 온화한 분위기와 성숙한 느낌을 냄
+                `
+                $('#harmony2').css('margin-bottom', '10%');
+                $('#harmony2').css('color', '#DC7633');
+            }
+            if(prediction[0].className === "winterCool") {
+                $('.first-page').css('backgroundColor', '#D5D8DC');
+                document.getElementById("harmony3").innerHTML =
+                    '<img src="img/4.PNG" width="900" height="500">';
+                
+                document.getElementById("harmony5").innerHTML = 'CoolTone Hair Color';
+                
+                document.getElementById("harmony4").innerHTML = 
+                    '<img src="img/22.PNG" width="900" height="500">';
+                
+                
+                document.getElementById("harmony8").innerHTML = 'CoolTone Suit Color';
+                document.getElementById("harmony6").innerHTML = 
+                    '<img src="img/222.PNG" width="900" height="500">';
+                
+                
+                document.getElementById("harmony9").innerHTML = 'CoolTone Accessory Color';
+                document.getElementById("harmony7").innerHTML = 
+                    '<img src="img/2222.PNG" width="500" height="500">';
+                
+                
+                document.getElementById("harmony").innerHTML = `
+                메이크업팁 - 원포인트를 주어라!
+                `;
+                
+                document.getElementById("harmony2").innerHTML = `
+                세련되고 도화적인 이미지가 매력적인 겨울 쿨톤은 시크한 매력이 돋보이기 때문에 여러 색감이 있으면 인상이 강해보이고 부담스러울 수 있음
+                `
+                $('#harmony2').css('margin-bottom', '10%');
+            }
+        }
+        function firstPage() {
+            location.reload();
+        }
+    </script>
+</body>
+<!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+ -->
+
+</html>

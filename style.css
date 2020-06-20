@@ -1,0 +1,270 @@
+body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+}
+
+.file-upload {
+    background-color: #ffffff;
+    width: 40rem;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.file-upload-btn {
+    width: 100%;
+    margin: 0;
+    color: #fff;
+    background: #AED6F1;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.file-upload-btn:hover {
+    background: #AED6F1;
+    color: #ffffff;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.file-upload-btn:active {
+    border: 0;
+    transition: all 0.2s ease;
+}
+
+.file-upload-content {
+    display: none;
+    text-align: center;
+}
+
+.file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.image-upload-wrap {
+    height: 40rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5.0rem;
+    border: 3px dashed #5499C7;
+    position: relative;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+    background-color: #AED6F1;
+    border: 3px dashed #ffffff;
+}
+
+.image-title-wrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+}
+
+.drag-text {
+    text-align: center;
+}
+
+.drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    padding: 60px 0;
+    color: #0000FF;
+}
+
+.file-upload-image {
+    background-color: #ffffff;
+    width: 35rem;
+    margin: 0 auto;
+    padding: 20px;
+    height: 35rem;
+}
+
+.remove-image {
+    width: 12.5rem;
+    margin: 0;
+    color: #fff;
+    background: #AED6F1;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.0rem;
+}
+
+.remove-image:hover {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.remove-image:active {
+    border: 0;
+    transition: all 0.2s ease;
+}
+
+.title {
+    text-align: center;
+    display: grid;
+    background-color: #AED6F1;
+    font-size: 6.0rem;
+    font-family: cursive;
+    color: #ffffff;
+}
+
+.upload-text {
+    font-size: 3rem;
+    margin: 5%;
+    margin-top: 35%;
+    color: #17202A;
+}
+
+.result {
+    margin-left: 10%;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 0.5fr 2.5fr;
+}
+
+#space {
+    margin: 0.5rem;
+    font-size: 1.899rem;
+}
+
+#space2 {
+    margin: 0.5rem;
+    background: #F2F3F4;
+    border-radius: 2.5rem;
+    margin-right: 4rem;
+    font-size: 2rem;
+}
+
+#space2 span {
+    display: block;
+    text-align: right;
+    border-radius: 2.5rem;
+    background: powderblue;
+    padding: 0 0.6rem;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.label-result {
+    margin-right: 4rem;
+}
+
+.result-message {
+    margin-top: 8rem;
+    text-align: center;
+    margin-right: 5rem;
+    font-size: 3rem;
+    font-family: none;
+    margin-bottom: 5rem;
+}
+
+.result-message2 {
+    margin-top: 5rem;
+    font-size: 2.0rem;
+    text-align: center;
+    margin-right: 6.0rem;
+
+    
+}
+
+.colorTest {
+    text-align: center;
+    font-size: 3rem;
+    color: #64B5F6;
+    margin-top: 10rem;
+}
+
+#harmony {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#harmony2 {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-weight: bold;
+}
+
+#harmony3 {
+    text-align: center;
+}
+
+#harmony4 {
+    text-align: center;
+    margin-left: 4.5%;
+}
+
+#harmony6 {
+    text-align: center;
+}
+
+#harmony7 {
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#harmony8 {
+    text-align: center;
+    font-weight: bold;
+}
+
+#harmony9 {
+    text-align: center;
+    font-weight: bold;
+}
+
+#harmony5 {
+    text-align: center;
+    font-weight: bold;
+}
+
+#source {
+    font-size: 0.3rem;
+    text-align: right;
+    margin-right: 3%;
+}
+
+.first-page {
+    width: 12.5rem;
+    margin: 0;
+    color: #fff;
+    background: #AED6F1;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.0rem;
+    text-align: center;
+    margin-left: 40%;
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+}

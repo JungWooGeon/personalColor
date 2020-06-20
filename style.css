@@ -117,6 +117,7 @@ body {
 }
 
 .title {
+    margin-top: 5%;
     text-align: center;
     display: grid;
     background-color: #AED6F1;

@@ -172,7 +172,7 @@ body {
     margin-top: 8rem;
     text-align: center;
     margin-right: 5rem;
-    font-size: 3rem;
+    font-size: 4rem;
     font-family: none;
     margin-bottom: 5rem;
 }
@@ -195,7 +195,7 @@ body {
 
 #harmony {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 3rem;
     font-weight: bold;
 }
 
@@ -204,6 +204,7 @@ body {
     margin-right: 10%;
     font-weight: bold;
     text-align: center;
+    font-size: 2.5rem;
 }
 
 #harmony3 {
@@ -229,16 +230,19 @@ body {
 #harmony8 {
     text-align: center;
     font-weight: bold;
+    font-size: 3.7rem;
 }
 
 #harmony9 {
     text-align: center;
     font-weight: bold;
+    font-size: 3.7rem;
 }
 
 #harmony5 {
     text-align: center;
     font-weight: bold;
+    font-size: 3.7rem;
 }
 
 #source {

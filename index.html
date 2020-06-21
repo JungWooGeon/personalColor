@@ -177,9 +177,24 @@
             $('.result-message2').html(resultMessage2);
             document.getElementById("image-title").innerHTML = "다시하기";
             for (let i = 0; i < maxPredictions; i++) {
-                const classPrediction =
-                    prediction[i].className;
-                labelContainer.childNodes[i].innerHTML = classPrediction;
+                // const classPrediction =
+                //     prediction[i].className;
+                // labelContainer.childNodes[i].innerHTML = classPrediction;
+                switch (prediction[i].className){
+                    case "springWarm":
+                        labelContainer.childNodes[i].innerHTML = 'Spring';
+                        break;
+                    case "summerCool":
+                        labelContainer.childNodes[i].innerHTML = 'Summer';
+                        break;
+                    case "autumnWarm":
+                        labelContainer.childNodes[i].innerHTML = 'Autumn';
+                        break;
+                    case "winterCool":
+                        labelContainer.childNodes[i].innerHTML = 'Winter';
+                        break;
+                    default:
+                }
             }
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =

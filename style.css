@@ -279,7 +279,13 @@ body {
 .ad-banner2 {
     width: 320px;
     margin:0 auto;
-    margin-top: 5%;
+    margin-top: 2%;
+}
+
+.ad-banner3 {
+    width: 320px;
+    margin:0 auto;
+    margin-top: 2%;
 }
 
 @media screen and (max-width: 600px) {

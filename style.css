@@ -83,10 +83,10 @@ body {
 
 .file-upload-image {
     background-color: #ffffff;
-    width: 35rem;
+    width: 70%;
     margin: 0 auto;
     padding: 20px;
-    height: 35rem;
+    height: 50%;
 }
 
 .remove-image {
@@ -171,7 +171,7 @@ body {
     margin-top: 8rem;
     text-align: center;
     margin-right: 5rem;
-    font-size: 4rem;
+    font-size: 150%;
     font-family: none;
     margin-bottom: 5rem;
 }

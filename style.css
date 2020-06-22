@@ -89,7 +89,6 @@ body {
     margin: 0 auto;
     padding: 20px;
     height: 50%;
-    margin-right: 1em;
 }
 
 .remove-image {
@@ -297,6 +296,10 @@ body {
     width: 320px;
     margin:0 auto;
     margin-top: 2%;
+}
+
+.buttons {
+    text-align: center;
 }
 
 @media screen and (max-width: 600px) {

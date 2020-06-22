@@ -12,6 +12,7 @@
     <div class="title" id="title">Personal Color</div>
     <h1 class="result" id="result">
             <p class="result-message"></p>
+            <p class="result-messages"></p>
         </h1>
     <p id="harmony3"></p>
     <p id="source"></p>
@@ -38,7 +39,7 @@
             </div>
         </div>
         <div class="file-upload-content">
-            <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+            <img class="file-upload-image" id="face-image" src="#" alt="your image" style="padding-top: 0px;" />
             <div class="image-title-wrap">
                 <button type="button" onclick="removeUpload()" class="remove-image">
                     <span class="image-title" id="image-title">loading..</span>
@@ -148,33 +149,42 @@
             prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
             var resultMessage;
             var resultMessage2 = "자세히 보기";
+            var resultMessages;
             switch (prediction[0].className) {
                 case "springWarm":
-                    resultMessage = "My Color  :  봄웜톤";
+                    resultMessage = "My Color";
+                    resultMessages = "봄웜톤";
                     $('.title').css('backgroundColor', '#F6DDCC');
                     $('.remove-image').css('backgroundColor', '#F6DDCC');
                     $('.result-message').css('color', '#E59866');
+                    $('.result-messages').css('color', '#E59866');
                     break;
                 case "summerCool":
-                    resultMessage = "My Color  :  여름쿨톤";
+                    resultMessage = "My Color";
+                    resultMessages = "여름쿨톤";
                     $('.title').css('backgroundColor', '#AED6F1');
                     $('.remove-image').css('backgroundColor', '#AED6F1');
                     $('.result-message').css('color', '#006699');
+                    $('.result-messages').css('color', '#006699');
                     break;
                 case "autumnWarm":
-                    resultMessage = "My Color  :  가을웜톤";
+                    resultMessage = "My Color";
+                    resultMessages = "가을웜톤";
                     $('.title').css('backgroundColor', '#EDBB99');
                     $('.remove-image').css('backgroundColor', '#EDBB99');
                     $('.result-message').css('color', '#BA4A00');
+                    $('.result-messages').css('color', '#BA4A00');
                     break;
                 case "winterCool":
-                    resultMessage = "My Color  :  겨울쿨톤";
+                    resultMessage = "My Color";
+                    resultMessages = "겨울쿨톤";
                     $('.title').css('backgroundColor', '#D5D8DC');
                     $('.remove-image').css('backgroundColor', '#D5D8DC');
                     break;
                 default:
             }
             $('.result-message').html(resultMessage);
+            $('.result-messages').html(resultMessages);
             $('.result-message2').html(resultMessage2);
             document.getElementById("image-title").innerHTML = "다시하기";
             for (let i = 0; i < maxPredictions; i++) {
@@ -245,26 +255,26 @@
             if(prediction[0].className === "springWarm") {
                 $('.first-page').css('backgroundColor', '#F6DDCC');
                 document.getElementById("harmony3").innerHTML =
-                    '<img src="img/1.PNG" width="900" height="500">';
+                    '<img src="img/1.PNG" width="100%" height="100%">';
                 
                 document.getElementById("harmony5").innerHTML = 'WarmTone Hair Color';
                 $('#harmony5').css('color', '#E59866');
                 
                 
                 document.getElementById("harmony4").innerHTML = 
-                    '<img src="img/11.PNG" width="900" height="500">';
+                    '<img src="img/11.PNG" width="100%" height="100%">';
                 
                 
                 document.getElementById("harmony8").innerHTML = 'WarmTone Suit Color';
                 $('#harmony8').css('color', '#E59866');
                 document.getElementById("harmony6").innerHTML = 
-                    '<img src="img/111.PNG" width="900" height="500">';
+                    '<img src="img/111.PNG" width="100%" height="100%">';
                 
                 
                 document.getElementById("harmony9").innerHTML = 'WarmTone Accessory Color';
                 $('#harmony9').css('color', '#E59866');
                 document.getElementById("harmony7").innerHTML = 
-                    '<img src="img/1111.PNG" width="500" height="500">';
+                    '<img src="img/1111.PNG" width="100%" height="100%">';
                 $('#harmony7').css('backgroundColor', '#FBEEE6');
                 
                 
@@ -282,25 +292,25 @@
             if(prediction[0].className === "summerCool") {
                 $('.first-page').css('backgroundColor', '#AED6F1');
                 document.getElementById("harmony3").innerHTML =
-                    '<img src="img/2.PNG" width="900" height="500">';
+                    '<img src="img/2.PNG" width="100%" height="100%">';
                 
                 document.getElementById("harmony5").innerHTML = 'CoolTone Hair Color';
                 $('#harmony5').css('color', '#006699');
                 
                 document.getElementById("harmony4").innerHTML = 
-                    '<img src="img/22.PNG" width="900" height="500">';
+                    '<img src="img/22.PNG" width="100%" height="100%">';
                 
                 
                 document.getElementById("harmony8").innerHTML = 'CoolTone Suit Color';
                 $('#harmony8').css('color', '#006699');
                 document.getElementById("harmony6").innerHTML = 
-                    '<img src="img/222.PNG" width="900" height="500">';
+                    '<img src="img/222.PNG" width="100%" height="100%">';
                 
                 
                 document.getElementById("harmony9").innerHTML = 'CoolTone Accessory Color';
                 $('#harmony9').css('color', '#006699');
                 document.getElementById("harmony7").innerHTML = 
-                    '<img src="img/2222.PNG" width="500" height="500">';
+                    '<img src="img/2222.PNG" width="100%" height="100%">';
                 
                 
                 document.getElementById("harmony").innerHTML = `
@@ -317,25 +327,25 @@
             if(prediction[0].className === "autumnWarm") {
                 $('.first-page').css('backgroundColor', '#EDBB99');
                 document.getElementById("harmony3").innerHTML =
-                    '<img src="img/3.PNG" width="900" height="500">';
+                    '<img src="img/3.PNG" width="100%" height="100%">';
                 
                 document.getElementById("harmony5").innerHTML = 'WarmTone Hair Color';
                 $('#harmony5').css('color', 'rgb(186, 74, 0)');
                 
                 document.getElementById("harmony4").innerHTML = 
-                    '<img src="img/11.PNG" width="900" height="500">';
+                    '<img src="img/11.PNG" width="100%" height="100%">';
                 
                 
                 document.getElementById("harmony8").innerHTML = 'WarmTone Suit Color';
                 $('#harmony8').css('color', 'rgb(186, 74, 0)');
                 document.getElementById("harmony6").innerHTML = 
-                    '<img src="img/111.PNG" width="900" height="500">';
+                    '<img src="img/111.PNG" width="100%" height="100%">';
                 
                 
                 document.getElementById("harmony9").innerHTML = 'WarmTone Accessory Color';
                 $('#harmony9').css('color', 'rgb(186, 74, 0)');
                 document.getElementById("harmony7").innerHTML = 
-                    '<img src="img/1111.PNG" width="500" height="500">';
+                    '<img src="img/1111.PNG" width="100%" height="100%">';
                 $('#harmony7').css('backgroundColor', '#FBEEE6');
                 
                 
@@ -353,22 +363,22 @@
             if(prediction[0].className === "winterCool") {
                 $('.first-page').css('backgroundColor', '#D5D8DC');
                 document.getElementById("harmony3").innerHTML =
-                    '<img src="img/4.PNG" width="900" height="500">';
+                    '<img src="img/4.PNG" width="100%" height="100%">';
                 
                 document.getElementById("harmony5").innerHTML = 'CoolTone Hair Color';
                 
                 document.getElementById("harmony4").innerHTML = 
-                    '<img src="img/22.PNG" width="900" height="500">';
+                    '<img src="img/22.PNG" width="100%" height="100%">';
                 
                 
                 document.getElementById("harmony8").innerHTML = 'CoolTone Suit Color';
                 document.getElementById("harmony6").innerHTML = 
-                    '<img src="img/222.PNG" width="900" height="500">';
+                    '<img src="img/222.PNG" width="100%" height="100%">';
                 
                 
                 document.getElementById("harmony9").innerHTML = 'CoolTone Accessory Color';
                 document.getElementById("harmony7").innerHTML = 
-                    '<img src="img/2222.PNG" width="500" height="500">';
+                    '<img src="img/2222.PNG" width="100%" height="100%">';
                 
                 
                 document.getElementById("harmony").innerHTML = `

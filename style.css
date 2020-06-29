@@ -301,6 +301,10 @@ body {
     text-align: center;
 }
 
+.upload-text2 {
+    color: #0000FF;
+}
+
 @media screen and (max-width: 600px) {
   html {
     font-size: 10px;

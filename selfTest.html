@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="selfstyle.css" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <div class="title" id="title">색상변경</div>
+        <div class="onoffswitch">
+            <input
+                type="checkbox"
+                name="onoffswitch"
+                class="onoffswitch-checkbox"
+                id="myonoffswitch"
+                tabindex="0"
+                checked
+                onclick='colorchange(this);'
+            />
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
+        <p class="text1">
+            아래배경에 검지손가락을 올려보세요
+        </p>
+        <div class="box" id="box"></div>
+        <p class="text2">
+            손이 더 화사해보이는 쪽이 자신의 톤입니다
+        </p>
+        <div id="grid">
+            <div>
+                orange: 웜톤
+            </div>
+            <div>
+                pink: 쿨톤
+            </div>
+        </div>
+        <script>
+            function colorchange(checkboxElem) {
+                if(checkboxElem.checked) {
+                    document.getElementById('box').style.backgroundColor = '#FCC988';
+                } else {
+                    document.getElementById('box').style.backgroundColor = '#FFC5BD';
+                }
+            }
+
+            // $('#myonoffswitch').change(function () {
+            //     if (this.checked) {
+            //         document.getElementById('box').style.backgroundColor = '#FCC988';
+            //     } else {
+            //         document.getElementById('box').style.backgroundColor = '#FFC5BD';
+            //     }
+            // });
+        </script>
+    </body>
+</html>

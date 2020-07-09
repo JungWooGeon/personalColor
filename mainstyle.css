@@ -1,0 +1,54 @@
+body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+}
+
+.title {
+    margin-top: 10%;
+    text-align: center;
+    display: grid;
+    font-size: 5.0rem;
+    font-family: cursive;
+    color: #4DEAE7;
+}
+
+.btn1 {
+    margin-top: 90%;
+    text-align: center; 
+}
+
+.btn2 {
+    margin-top: 10%;
+    text-align: center; 
+}
+
+.movePersonal {
+    font-size: 1.5rem;
+    background-color: #FFC5BD;
+    border: none;
+    border-radius: 3px;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 70%;
+}
+
+.moveSelf {
+    font-size: 1.5rem;
+    background-color: #F0D6FB;
+    border: none;
+    border-radius: 3px;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 70%;
+}
+
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+}

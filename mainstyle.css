@@ -55,13 +55,25 @@ body {
 .ad-main-banner2 {
     width: 320px;  
     margin: 0 auto;
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
 .ad-main-banner3 {
     width: 320px;  
     margin: 0 auto;
-    margin-top: 2%;
+    margin-top: 1%;
+}
+
+.ad-main-banner4 {
+    width: 320px;  
+    margin: 0 auto;
+    margin-top: 1%;
+}
+
+.ad-main-banner5 {
+    width: 320px;  
+    margin: 0 auto;
+    margin-top: 1%;
 }
 
 @media screen and (max-width: 600px) {

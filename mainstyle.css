@@ -46,6 +46,11 @@ body {
     width: 70%;
 }
 
+.ad-main-banner {
+    width: 320px;  
+    margin: 0 auto;
+    margin-top: 20%;
+}
 
 @media screen and (max-width: 600px) {
   html {

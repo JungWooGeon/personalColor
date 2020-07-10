@@ -52,6 +52,12 @@ body {
     margin-top: 30%;
 }
 
+.ad-main-banner2 {
+    width: 320px;  
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
 @media screen and (max-width: 600px) {
   html {
     font-size: 10px;

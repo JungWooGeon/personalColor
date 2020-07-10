@@ -57,6 +57,12 @@ p {
     margin-top: 2%;
 }
 
+.ad-self-banner3 {
+    width: 320px;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+
 @media screen and (max-width: 600px) {
   html {
     font-size: 10px;

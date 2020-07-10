@@ -49,7 +49,7 @@ body {
 .ad-main-banner {
     width: 320px;  
     margin: 0 auto;
-    margin-top: 20%;
+    margin-top: 30%;
 }
 
 @media screen and (max-width: 600px) {

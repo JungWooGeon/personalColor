@@ -45,6 +45,18 @@ p {
     border-radius: 5px;
 }
 
+.ad-self-banner {
+    width: 320px;
+    margin: 0 auto;
+    margin-top: 30%;
+}
+
+.ad-self-banner2 {
+    width: 320px;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+
 @media screen and (max-width: 600px) {
   html {
     font-size: 10px;

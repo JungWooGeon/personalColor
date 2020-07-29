@@ -46,47 +46,6 @@ body {
     width: 70%;
 }
 
-.ad-main-banner {
-    width: 320px;  
-    margin: 0 auto;
-    margin-top: 30%;
-}
-
-.ad-main-banner2 {
-    width: 320px;  
-    margin: 0 auto;
-    margin-top: 1%;
-}
-
-.ad-main-banner3 {
-    width: 320px;  
-    margin: 0 auto;
-    margin-top: 1%;
-}
-
-.ad-main-banner4 {
-    width: 320px;  
-    margin: 0 auto;
-    margin-top: 1%;
-}
-
-.ad-main-banner5 {
-    width: 320px;  
-    margin: 0 auto;
-    margin-top: 1%;
-}
-
-.ad-main-banner6 {
-    width: 320px;  
-    margin: 0 auto;
-    margin-top: 1%;
-}
-
-.ad-main-banner7 {
-    width: 250px;  
-    margin: 0 auto;
-    margin-top: 1%;
-}
 
 @media screen and (max-width: 600px) {
   html {

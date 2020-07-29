@@ -29,10 +29,6 @@ p {
     font-size: 1.5rem;
 }
 
-.first {
-    text-align: center;
-    margin-top: 20%;
-}
 
 .box { 
     margin: 0 auto;
@@ -43,24 +39,6 @@ p {
     background-color: #FCC988;
     margin: 10 10 10 10;
     border-radius: 5px;
-}
-
-.ad-self-banner {
-    width: 320px;
-    margin: 0 auto;
-    margin-top: 30%;
-}
-
-.ad-self-banner2 {
-    width: 320px;
-    margin: 0 auto;
-    margin-top: 2%;
-}
-
-.ad-self-banner3 {
-    width: 320px;
-    margin: 0 auto;
-    margin-top: 2%;
 }
 
 @media screen and (max-width: 600px) {

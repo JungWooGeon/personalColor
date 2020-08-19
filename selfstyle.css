@@ -97,3 +97,19 @@ p {
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+
+.ad-banner {
+    width: 320px;
+    margin:0 auto;
+    margin-top: 30%;
+}
+.ad-banner2 {
+    width: 320px;
+    margin:0 auto;
+    margin-top: 10%;
+}
+.ad-banner3 {
+    width: 320px;
+    margin:0 auto;
+    margin-top: 10%;
+}

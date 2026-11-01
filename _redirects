@@ -1,2 +1,7 @@
+# Old Netlify address → tintycolor.com. Keep app-link verification and app-ads.txt answering on the old host too.
+https://personalcolorotest.netlify.app/.well-known/*  /.well-known/:splat  200!
+https://personalcolorotest.netlify.app/app-ads.txt    /app-ads.txt         200!
+https://personalcolorotest.netlify.app/*              https://tintycolor.com/:splat  301!
+
 /selftest  /selfTest.html  200
 /selftest/  /selfTest.html  200

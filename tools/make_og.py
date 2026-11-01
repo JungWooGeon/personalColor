@@ -24,7 +24,7 @@ import tinty as T
 
 ROOT = Path(__file__).resolve().parent.parent
 TONES = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT.parent / "PersonalColorAndroid/core/data/src/main/assets/tones.json"
-SITE = "https://personalcolorotest.netlify.app"
+SITE = "https://tintycolor.com"
 PKG = "com.gun.personalcolor"
 PLAY = f"https://play.google.com/store/apps/details?id={PKG}"
 APP_NAME = "나의 컬러는? - 퍼스널컬러"
@@ -204,7 +204,7 @@ def make_page(tone, out):
     tid = tone["id"]
     e = html.escape
     url = f"{SITE}/r/{tid}"
-    intent = f"intent://personalcolorotest.netlify.app/r/{tid}#Intent;scheme=https;package={PKG};S.browser_fallback_url={quote(PLAY, safe='')};end"
+    intent = f"intent://tintycolor.com/r/{tid}#Intent;scheme=https;package={PKG};S.browser_fallback_url={quote(PLAY, safe='')};end"
     lines = [tone["summary"]] + [l for l in tone["characteristics"].split("\n") if l.strip()][:2]
     sw = lambda cs: "".join(f'<li><i style="background:{c["hex"]}"></i>{e(c["name"])}</li>' for c in cs)
     band = band_hexes(tone)

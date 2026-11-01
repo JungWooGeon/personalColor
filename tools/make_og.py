@@ -106,7 +106,7 @@ PAGE = """<!DOCTYPE html>
     <ul class="summary">{lines}</ul>
     <div class="stack">
       <a class="btn btn-primary btn-block" id="open" href="{play}">앱에서 내 퍼스널컬러 진단하기</a>
-      <a class="btn btn-ghost btn-block" href="{play}">Google Play에서 앱 받기</a>
+      <a class="btn btn-ghost btn-block" href="{play}">Google Play</a>
     </div>
   </section>
   <p class="section-sub" style="text-align:center;margin-top:20px">🔒 사진은 기기 안에서만 분석해요</p>
@@ -117,7 +117,6 @@ PAGE = """<!DOCTYPE html>
     <span>문의 <a href="mailto:wjddnrjs123@gmail.com">wjddnrjs123@gmail.com</a></span>
     <a href="/privacy.html">개인정보처리방침</a>
     <a href="/terms.html">이용약관</a>
-    <span class="copy">© 2026 나의 컬러는?</span>
   </div>
 </footer>
 <script>

@@ -30,6 +30,12 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 ICON_BG = "#EFEBF6"
 
 
+
+def band_hexes(tone):
+    """First 4 best colors for the top band, skipping pure white/black (winter tones list them early)."""
+    hexes = [c["hex"] for c in tone["bestColors"] if c["hex"].upper() not in ("#FFFFFF", "#000000")]
+    return hexes[:4]
+
 def rasterize(svgs):
     """512-box SVG strings -> 1024px transparent RGBA images (headless Chrome)."""
     with tempfile.TemporaryDirectory() as tmp:
@@ -77,7 +83,7 @@ def gradient(w, h, colors):
 def make_image(tone, char, out):
     W, H = 1200, 630
     img = Image.new("RGB", (W, H), "#FAF8F6")
-    img.paste(gradient(W, 150, [c["hex"] for c in tone["bestColors"][:4]]), (0, 0))
+    img.paste(gradient(W, 150, band_hexes(tone)), (0, 0))
     d = ImageDraw.Draw(img)
     d.ellipse((880, 46, 1176, 342), fill="#FAF8F6")  # sticker that lifts Tinty off the tone band
     paste(img, char, 900, 52, 276)
@@ -172,7 +178,7 @@ def make_page(tone, out):
     out.write_text(PAGE.format(
         title=e(f"나의 퍼스널컬러는 {tone['nameKo']}!"), summary=e(tone["summary"]), app=e(APP_NAME),
         image=f"{SITE}/r/og/{tid}.png", url=url, tid=tid, play=PLAY, intent=intent, name=e(tone["nameKo"]),
-        grad=",".join(c["hex"] for c in tone["bestColors"][:4]),
+        grad=",".join(band_hexes(tone)),
         tags="".join(f"<li>#{e(k)}</li>" for k in tone["keywords"]),
         names=e(", ".join(c["name"] for c in tone["bestColors"][:12])),
         swatches="".join(f'<span style="background:{c["hex"]}" title="{e(c["name"])}"></span>' for c in tone["bestColors"][:12]),

@@ -202,3 +202,12 @@ def tinty_mono(fill='#fff', uid='mo'):
     return (f'<mask id="mk{uid}"><rect width="512" height="512" fill="#fff"/><path d="M106 380 Q256 440 406 380" stroke="#000" stroke-width="14" fill="none"/>'
             f'<ellipse cx="218" cy="316" rx="18" ry="24" fill="#000"/><ellipse cx="294" cy="316" rx="18" ry="24" fill="#000"/></mask>'
             f'<g transform="translate(256 256) scale(1.3) translate(-256 -262)" mask="url(#mk{uid})" fill="{fill}"><path d="{BODY}"/><path d="{BAND}"/></g>')
+
+
+def tinty_tiny(uid='ti'):
+    """Bold mark for <=24px (favicons): body silhouette + big eyes + solid violet band. No gloss, blush or mouth."""
+    return (f'<defs><linearGradient id="g{uid}" x1=".15" y1=".05" x2=".8" y2="1"><stop offset="0" stop-color="#FFB896"/>'
+            f'<stop offset="1" stop-color="#A694EC"/></linearGradient></defs>'
+            f'<g transform="translate(256 256) scale(1.3) translate(-256 -262)"><path d="{BODY}" fill="url(#g{uid})"/>'
+            f'<path d="{BAND}" fill="#5B4B8A"/>'
+            f'<ellipse cx="210" cy="306" rx="22" ry="30" fill="{INK}"/><ellipse cx="302" cy="306" rx="22" ry="30" fill="{INK}"/></g>')

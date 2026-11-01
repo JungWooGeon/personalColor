@@ -24,34 +24,53 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#FAF8F6" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141312" media="(prefers-color-scheme: dark)">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="32" height="32">나의 컬러는?</a>
+    <a class="brand" href="/"><img src="/assets/tinty/mark.svg" alt="" width="36" height="36">나의 컬러는?</a>
+    <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.gun.personalcolor">다운로드</a>
   </div>
 </header>
-<main class="wrap share">
-  <div class="share-band" style="background:linear-gradient(90deg,#C66B3D,#B7410E,#A8402A,#D9701E)" aria-hidden="true">
-    <img class="share-tinty bob" src="/assets/tinty/autumn_true.svg" alt="" width="132" height="132">
+<main id="main" class="wrap share">
+  <div class="share-sheet">
+  <div class="share-hero" style="--a1:#E5BCA8;--a2:#DFAA93;--a3:#E1BCB4">
+    <img class="bob" src="/assets/tinty/autumn_true.svg" alt="가을 웜 컬러의 틴티" width="200" height="200">
   </div>
   <section class="share-card">
-    <p class="eyebrow">친구의 퍼스널컬러는</p>
-    <h1>가을 웜</h1>
-    <ul class="tags"><li>#깊이있는</li><li>#고급스러운</li><li>#따뜻한</li><li>#클래식한</li></ul>
-    <div class="swatches" role="img" aria-label="잘 어울리는 컬러: 테라코타, 러스트, 브릭 레드, 펌킨 오렌지, 머스터드, 앤티크 골드, 카멜, 올리브 그린, 카키, 웜 틸, 초콜릿 브라운, 웜 아이보리"><span style="background:#C66B3D" title="테라코타"></span><span style="background:#B7410E" title="러스트"></span><span style="background:#A8402A" title="브릭 레드"></span><span style="background:#D9701E" title="펌킨 오렌지"></span><span style="background:#D4A017" title="머스터드"></span><span style="background:#C9A227" title="앤티크 골드"></span><span style="background:#C19A6B" title="카멜"></span><span style="background:#708238" title="올리브 그린"></span><span style="background:#8A7F4A" title="카키"></span><span style="background:#2D6E6A" title="웜 틸"></span><span style="background:#5C3A21" title="초콜릿 브라운"></span><span style="background:#F3E5C5" title="웜 아이보리"></span></div>
+    <div class="head">
+      <p class="eyebrow">친구의 퍼스널컬러는</p>
+      <h1>가을 웜</h1>
+      <p class="en">Warm Autumn</p>
+      <ul class="tags"><li>#깊이있는</li><li>#고급스러운</li><li>#따뜻한</li><li>#클래식한</li></ul>
+    </div>
+    <h2><span class="lbl best">BEST</span>잘 어울리는 컬러</h2>
+    <ul class="swatches"><li><i style="background:#C66B3D"></i>테라코타</li><li><i style="background:#B7410E"></i>러스트</li><li><i style="background:#A8402A"></i>브릭 레드</li><li><i style="background:#D9701E"></i>펌킨 오렌지</li><li><i style="background:#D4A017"></i>머스터드</li><li><i style="background:#C9A227"></i>앤티크 골드</li><li><i style="background:#C19A6B"></i>카멜</li><li><i style="background:#708238"></i>올리브 그린</li><li><i style="background:#8A7F4A"></i>카키</li><li><i style="background:#2D6E6A"></i>웜 틸</li><li><i style="background:#5C3A21"></i>초콜릿 브라운</li><li><i style="background:#F3E5C5"></i>웜 아이보리</li></ul>
+    <h2><span class="lbl worst">WORST</span>피하면 좋은 컬러</h2>
+    <ul class="swatches worst"><li><i style="background:#000000"></i>블랙</li><li><i style="background:#FFFFFF"></i>퓨어 화이트</li><li><i style="background:#E9318A"></i>핫핑크</li><li><i style="background:#CBB8E6"></i>파스텔 라벤더</li></ul>
     <ul class="summary"><li>테라코타·머스터드처럼 깊고 따뜻한 색이 잘 받는 톤이에요.</li><li>노란 기가 뚜렷한 황금빛 베이지 피부</li><li>호박빛 눈동자, 붉은 기 도는 갈색 머리</li></ul>
+  </section>
+  </div>
+  <section class="share-cta">
+    <h2>나는 어떤 톤일까?</h2>
+    <p>사진 한 장이면 12톤 중 내 톤을 알려줘요.</p>
     <div class="stack">
-      <a class="btn btn-primary btn-block" id="open" href="https://play.google.com/store/apps/details?id=com.gun.personalcolor">앱에서 내 퍼스널컬러 진단하기</a>
+      <a class="btn btn-primary btn-block" id="open" href="https://play.google.com/store/apps/details?id=com.gun.personalcolor">나도 진단해 보기</a>
       <a class="btn btn-ghost btn-block" href="https://play.google.com/store/apps/details?id=com.gun.personalcolor">Google Play</a>
     </div>
   </section>
-  <p class="section-sub" style="text-align:center;margin-top:20px">🔒 사진은 기기 안에서만 분석해요</p>
+  <div class="share-foot">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>사진은 기기 안에서만 분석해요</span>
+    <a href="/#tones">다른 톤 둘러보기</a>
+  </div>
 </main>
 <footer class="site-footer">
   <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/tinty/mark.svg" alt="" width="28" height="28" loading="lazy">나의 컬러는?</a>
     <span>개발자 정우건</span>
     <span>문의 <a href="mailto:wjddnrjs123@gmail.com">wjddnrjs123@gmail.com</a></span>
     <a href="/privacy.html">개인정보처리방침</a>

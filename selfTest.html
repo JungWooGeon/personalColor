@@ -1,83 +1,42 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="selfstyle.css" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>
-    <body>
-        <div class="title" id="title">색상변경</div>
-        <div class="onoffswitch">
-            <input
-                type="checkbox"
-                name="onoffswitch"
-                class="onoffswitch-checkbox"
-                id="myonoffswitch"
-                tabindex="0"
-                checked
-                onclick='colorchange(this);'
-            />
-            <label class="onoffswitch-label" for="myonoffswitch">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-            </label>
-        </div>
-        <p class="text1">
-            아래배경에 검지손가락을 올려보세요
-        </p>
-        <div class="box" id="box"></div>
-        <p class="text2">
-            손이 더 화사해보이는 쪽이 자신의 톤입니다
-        </p>
-        <div id="grid">
-            <div>
-                orange: 웜톤
-            </div>
-            <div>
-                pink: 쿨톤
-            </div>
-        </div>
-        
-        <div class="ad-banner">
-        <ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-1hrj8qzt3czeg" 
- data-ad-width   = "300" 
- data-ad-height  = "250"></ins> 
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-        </div>
-        
-        <div class="ad-banner2">
-            <ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-urxh3hsudqnl" 
- data-ad-width   = "300" 
- data-ad-height  = "250"></ins> 
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-        </div>
-        
-        <div class="ad-banner3">
-            <ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-1iuno5924aov7" 
- data-ad-width   = "320" 
- data-ad-height  = "50"></ins> 
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-        </div>
-        <script>
-            function colorchange(checkboxElem) {
-                if(checkboxElem.checked) {
-                    document.getElementById('box').style.backgroundColor = '#FCC988';
-                } else {
-                    document.getElementById('box').style.backgroundColor = '#FFC5BD';
-                }
-            }
-
-            // $('#myonoffswitch').change(function () {
-            //     if (this.checked) {
-            //         document.getElementById('box').style.backgroundColor = '#FCC988';
-            //     } else {
-            //         document.getElementById('box').style.backgroundColor = '#FFC5BD';
-            //     }
-            // });
-        </script>
-    </body>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>새로운 나의 컬러는? 앱이 나왔어요</title>
+<meta name="description" content="새로워진 나의 컬러는? 앱으로 업데이트해 주세요.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FAF8F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141312" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<main class="update">
+  <div>
+    <img src="/assets/icon-192.png" alt="나의 컬러는? 앱 아이콘" width="88" height="88">
+    <h1>새로운 나의 컬러는?<br>앱이 나왔어요</h1>
+    <ul>
+      <li>📸 사진 한 장으로 더 정확한 AI 진단</li>
+      <li>🎨 12톤 컬러 도감과 오늘의 코디</li>
+      <li>🔒 사진은 기기 밖으로 나가지 않아요</li>
+    </ul>
+    <a class="btn btn-primary btn-block" id="update" href="https://play.google.com/store/apps/details?id=com.gun.personalcolor">앱 업데이트하기</a>
+    <p class="note">버튼이 안 되면 Play 스토어에서<br>‘나의 컬러는?’을 검색해 업데이트해 주세요.</p>
+  </div>
+</main>
+<script>
+  // Android browsers: try the Play app, fall back to the web page after 600ms.
+  // Old app WebView ("; wv)") routes every URL through loadUrl, so market:// would only show an error page there — keep the https link.
+  var ua = navigator.userAgent;
+  if (/Android/i.test(ua) && !/; wv\)/.test(ua)) {
+    document.getElementById("update").addEventListener("click", function (e) {
+      e.preventDefault();
+      var web = this.href;
+      location.href = "market://details?id=com.gun.personalcolor";
+      setTimeout(function () { if (!document.hidden) location.href = web; }, 600);
+    });
+  }
+</script>
+</body>
 </html>

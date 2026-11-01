@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.gun.personalcolor",
+      "sha256_cert_fingerprints": ["7A:AF:CB:02:95:F6:D6:05:07:E8:AF:8A:36:6D:08:17:AF:25:11:C8:CB:01:AF:22:81:75:C0:99:80:93:D0:59"]
+    }
+  }
+]
